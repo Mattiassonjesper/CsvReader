@@ -12,19 +12,28 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class UserInterface extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Object[][] data;
 	private String[] columnNames = { "Game", "Maker", "Created", "Price", "Country", "Console" };
 	private DefaultTableModel tableModel;
 	private JTable table;
 	private GamesList myList;
 
+	// User interface
 	public UserInterface(String title) {
 		super(title);
 		setBounds(10, 10, 500, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// Create empty GamesList object
 		myList = new GamesList();
+		// Calls readFromCSV()
 		myList.readFromCSV("games.csv");
+		// Gets data
 		data = myList.convert2Data();
+		// Constructs DefaultTableModel
 		tableModel = new DefaultTableModel(data, columnNames);
 		table = new JTable(tableModel);
 		table.setAutoCreateRowSorter(true);

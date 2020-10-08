@@ -18,6 +18,7 @@ public class GamesList {
 		gamelist.add(gb);
 	}
 
+	// Read from CSV file and store it in <Game>
 	public void readFromCSV(String filename) {
 		File file = new File(filename);
 		FileReader reader = null;
@@ -53,6 +54,7 @@ public class GamesList {
 		}
 	}
 
+	// Convert <Game> to two dimensional array
 	public Object[][] convert2Data() {
 		Object[][] data = new Object[gamelist.size()][6];
 		for (int i = 0; i < gamelist.size(); i++) {
